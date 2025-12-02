@@ -503,11 +503,13 @@ namespace KamiYomu.CrawlerAgents.MundoAvatar
             {
                 if (disposing)
                 {
-                    // TODO: dispose managed state (managed objects)
+                    if (_browser.IsValueCreated)
+                    {
+                        _browser.Value.Result.Dispose();
+                    }
+
                 }
 
-                // TODO: free unmanaged resources (unmanaged objects) and override finalizer
-                // TODO: set large fields to null
                 _disposed = true;
             }
         }
